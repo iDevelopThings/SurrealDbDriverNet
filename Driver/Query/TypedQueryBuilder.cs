@@ -7,7 +7,7 @@ using Driver.Models.Types;
 using Driver.Models.Utils;
 using Driver.Rpc.Response;
 using Newtonsoft.Json;
-using Reflection;
+using Driver.Reflection;
 
 namespace Driver.Query;
 

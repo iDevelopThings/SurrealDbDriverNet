@@ -16,13 +16,12 @@
         <Company>iDevelopThings</Company>
         <Product>SurrealDb.Driver</Product>
         <AssemblyVersion>1.0.0</AssemblyVersion>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
       <DebugSymbols>true</DebugSymbols>
       <DebugType>embedded</DebugType>
-      <DocumentationFile></DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -32,7 +31,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Reflection\Reflection.csproj" />
     </ItemGroup>
 
 </Project>

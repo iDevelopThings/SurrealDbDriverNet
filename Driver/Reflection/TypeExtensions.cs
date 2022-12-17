@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Reflection;
+namespace Driver.Reflection;
 
 public static class TypeExtensions
 {
