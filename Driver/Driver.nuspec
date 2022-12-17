@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>SurrealDb.Driver</id>
+    <version>1.0.1</version>
+    <title>SurrealDB Driver</title>
+    <authors>iDevelopThings</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/iDevelopThings/SurrealDbDriverNet/</projectUrl>
+    <description>C# Database Library Core for interacting/using SurrealDB</description>
+    <copyright>MIT</copyright>
+  </metadata>
+</package>

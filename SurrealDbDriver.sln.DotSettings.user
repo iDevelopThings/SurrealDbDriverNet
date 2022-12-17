@@ -1,0 +1,44 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\Sam8t\.nuget\packages\nunit\3.13.3\lib\netstandard2.0\nunit.framework.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
+	
+	
+	
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5246dcbd_002D7b3b_002D4019_002Dbbc0_002D280b0568cfa5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestModelsAreRegisteredWithContainer #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::16EE8D5C-7AF7-480D-98E6-6B51F5A960D6::net7.0::Tests.ModelBaseTests.TestModelsAreRegisteredWithContainer&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=89212cc2_002D566b_002D43c4_002D91c3_002D2087f4f1c83f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestCreatingMigrations" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::16EE8D5C-7AF7-480D-98E6-6B51F5A960D6::net7.0::Tests.DatabaseMigrationsTests.TestCreatingMigrations&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</wpf:ResourceDictionary>

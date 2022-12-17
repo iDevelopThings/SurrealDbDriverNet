@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AssemblyName>SurrealDb.Driver</AssemblyName>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>SurrealDb.Driver</PackageId>
+        <Authors>iDevelopThings</Authors>
+        <Description>C# Database Library Core for interacting/using SurrealDB</Description>
+        <Copyright>MIT</Copyright>
+        <PackageProjectUrl>https://github.com/iDevelopThings/SurrealDbDriverNet</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/iDevelopThings/SurrealDbDriverNet</RepositoryUrl>
+        <Company>iDevelopThings</Company>
+        <Product>SurrealDb.Driver</Product>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <Version>1.0.1</Version>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugSymbols>true</DebugSymbols>
+      <DebugType>embedded</DebugType>
+      <DocumentationFile></DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EnvusoIocContainer" Version="1.0.0" />
+      <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.2.1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Reflection\Reflection.csproj" />
+    </ItemGroup>
+
+</Project>
