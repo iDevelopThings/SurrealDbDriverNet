@@ -124,4 +124,6 @@ public class Database
             _isInitialized = false;
         }
     }
+
+    public static Driver GetDriver() => _driver;
 }

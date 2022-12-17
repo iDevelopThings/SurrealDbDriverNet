@@ -65,4 +65,6 @@ public class Driver
 
     public async Task<IRpcResponse> Send(IRpcRequest req)
         => await _connection.Send(req);
+
+    public RpcConnection GetConnection() => _connection;
 }
