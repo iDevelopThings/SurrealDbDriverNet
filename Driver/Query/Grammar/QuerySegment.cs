@@ -8,7 +8,7 @@ public class QuerySegment
     public QueryParameter?     Parameter  { get; set; }
     public ExpressionOperator? Operator   { get; set; }
 
-    public QueryBuilder? SubQuery { get; set; } = null;
+    public IBaseQueryBuilder? SubQuery { get; set; } = null;
 
     public static QuerySegment Where(string column, object value, ExpressionOperator? op = null, WhereConnector connector = WhereConnector.And)
     {

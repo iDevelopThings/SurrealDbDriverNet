@@ -16,18 +16,11 @@ public enum WhereConnector
 
 public class QueryGrammar
 {
-    private readonly QueryBuilder _builder;
-
     public GrammarType GrammarType { get; set; }
 
     public GrammarTokenListBuilder whereTokens = null!;
     public GrammarTokenListBuilder selectTokens = null!;
-
-    private QueryGrammar(QueryBuilder builder)
-    {
-        _builder = builder;
-    }
-
+ 
     private GrammarTokenListBuilder BuildTokens_Segment(QuerySegment segment)
     {
         if ((segment.Type & QuerySegmentType.Contains) != 0) {
@@ -46,7 +39,7 @@ public class QueryGrammar
         throw new Exception("Unknown segment type: " + segment.Type);
     }
 
-    public GrammarTokenListBuilder BuildTokens_WhereClause(QueryBuilder builder)
+    public GrammarTokenListBuilder BuildTokens_WhereClause(IBaseQueryBuilder builder)
     {
         var segments = builder.Segments.Where(x => x.Group == QueryStatementGroup.Where).ToList();
         if (segments.Count == 0) {
@@ -78,9 +71,9 @@ public class QueryGrammar
         return b;
     }
 
-    public static QueryGrammar ProcessSelect(QueryBuilder builder, QueryGrammar whereClause)
+    public static QueryGrammar ProcessSelect(IBaseQueryBuilder builder, QueryGrammar whereClause)
     {
-        var grammar = new QueryGrammar(builder) {
+        var grammar = new QueryGrammar() {
             GrammarType    = GrammarType.Select,
         };
 
@@ -137,9 +130,9 @@ public class QueryGrammar
         return grammar;
     }
 
-    public static QueryGrammar ProcessWhereClause(QueryBuilder builder)
+    public static QueryGrammar ProcessWhereClause(IBaseQueryBuilder builder)
     {
-        var grammar = new QueryGrammar(builder) {
+        var grammar = new QueryGrammar() {
             GrammarType    = GrammarType.Where,
         };
 
