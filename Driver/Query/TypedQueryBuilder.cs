@@ -31,9 +31,9 @@ public interface IQueryBuilder<TModel> : IQueryBuilder where TModel : class, ISu
 
     public new QueryBuilder<TModel> Where(string column, ExpressionOperator? op, object? value, WhereConnector connector = WhereConnector.And);
 
-    public QueryBuilder<TModel> When(bool condition, Action<QueryBuilder<TModel>> builder, WhereConnector connector = WhereConnector.And);
+    public new QueryBuilder<TModel> When(bool condition, Action<QueryBuilder<TModel>> builder, WhereConnector connector = WhereConnector.And);
 
-    public QueryBuilder<TModel> Grouped(Action<QueryBuilder<TModel>> builder, WhereConnector connector = WhereConnector.And);
+    public new QueryBuilder<TModel> Grouped(Action<QueryBuilder<TModel>> builder, WhereConnector connector = WhereConnector.And);
 
     public new string BuildSelect();
 
@@ -90,7 +90,7 @@ public class QueryBuilder<TModel> : QueryBuilder, IQueryBuilder<TModel>
     public new QueryBuilder<TModel> Where<T>(string column, object? value, WhereConnector connector = WhereConnector.And)
         => (QueryBuilder<TModel>) base.Where<T>(column, value, connector);
 
-    public QueryBuilder<TModel> Where(Expression<Func<TModel, object>> columnExpr, object? value, WhereConnector connector = WhereConnector.And)
+    public new QueryBuilder<TModel> Where(Expression<Func<TModel, object>> columnExpr, object? value, WhereConnector connector = WhereConnector.And)
     {
         var mapper = (MemberInfo type) =>
         {
@@ -115,10 +115,10 @@ public class QueryBuilder<TModel> : QueryBuilder, IQueryBuilder<TModel>
     public new QueryBuilder<TModel> Where(string column, ExpressionOperator? op, object? value, WhereConnector connector = WhereConnector.And)
         => (QueryBuilder<TModel>) base.Where(column, op, value, connector);
 
-    public QueryBuilder<TModel> When(bool condition, Action<QueryBuilder<TModel>> builder, WhereConnector connector = WhereConnector.And)
+    public new QueryBuilder<TModel> When(bool condition, Action<QueryBuilder<TModel>> builder, WhereConnector connector = WhereConnector.And)
         => (QueryBuilder<TModel>) base.When(condition, b => builder((QueryBuilder<TModel>) b), connector);
 
-    public QueryBuilder<TModel> Grouped(Action<QueryBuilder<TModel>> builder, WhereConnector connector = WhereConnector.And)
+    public new QueryBuilder<TModel> Grouped(Action<QueryBuilder<TModel>> builder, WhereConnector connector = WhereConnector.And)
         => (QueryBuilder<TModel>) base.Grouped(b => builder((QueryBuilder<TModel>) b), connector);
 
     public new async Task<DbQueryResponse<TModel?>> Execute()
