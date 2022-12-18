@@ -14,14 +14,14 @@ namespace Driver.Query;
 
 public interface IBaseQueryBuilder
 {
-    public List<Thing>             Targets     { get; set; } 
-    public List<QueryParameter>    Parameters  { get; set; } 
-    public List<QuerySegment>      Segments    { get; set; } 
-    public List<QueryProjection>   Projections { get; set; } 
-    public GrammarTokenListBuilder Tokens      { get; set; } 
-    public List<QueryOrder>        Orders      { get; set; } 
+    public List<Thing>             Targets     { get; set; }
+    public List<QueryParameter>    Parameters  { get; set; }
+    public List<QuerySegment>      Segments    { get; set; }
+    public List<QueryProjection>   Projections { get; set; }
+    public GrammarTokenListBuilder Tokens      { get; set; }
+    public List<QueryOrder>        Orders      { get; set; }
     public string?                 QueryString { get; set; }
-    public QueryGrammar            Grammar     { get; set; } 
+    public QueryGrammar            Grammar     { get; set; }
 }
 
 public interface IQueryBuilder<TModel> : IBaseQueryBuilder where TModel : class, ISurrealModel
@@ -264,6 +264,10 @@ public class QueryBuilder<TModel> : IQueryBuilder<TModel> where TModel : class, 
 
     public string BuildSelect()
     {
+        if (Projections.Count == 0) {
+            Select("*");
+        }
+
         var whereGrammar  = QueryGrammar.ProcessWhereClause(this);
         var selectGrammar = QueryGrammar.ProcessSelect(this, whereGrammar);
         this.Tokens.Merge(selectGrammar.selectTokens);
