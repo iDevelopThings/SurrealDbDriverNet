@@ -16,7 +16,7 @@
         <Company>iDevelopThings</Company>
         <Product>SurrealDb.Driver</Product>
         <AssemblyVersion>1.0.0</AssemblyVersion>
-        <Version>1.0.4</Version>
+        <Version>1.0.5</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

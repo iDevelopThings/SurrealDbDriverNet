@@ -71,13 +71,13 @@ public interface IQueryBuilder<TModel> : IBaseQueryBuilder where TModel : class,
 
 public class QueryBuilder<TModel> : IQueryBuilder<TModel> where TModel : class, ISurrealModel
 {
-    public List<Thing>             Targets     { get; set; } = null!;
-    public List<QueryParameter>    Parameters  { get; set; } = null!;
-    public List<QuerySegment>      Segments    { get; set; } = null!;
-    public List<QueryProjection>   Projections { get; set; } = null!;
-    public GrammarTokenListBuilder Tokens      { get; set; } = null!;
-    public List<QueryOrder>        Orders      { get; set; } = null!;
-    public string?                 QueryString { get; set; }
+    public List<Thing>             Targets     { get; set; } = new();
+    public List<QueryParameter>    Parameters  { get; set; } = new();
+    public List<QuerySegment>      Segments    { get; set; } = new();
+    public List<QueryProjection>   Projections { get; set; } = new();
+    public GrammarTokenListBuilder Tokens      { get; set; } = new();
+    public List<QueryOrder>        Orders      { get; set; } = new();
+    public string?                 QueryString { get; set; } = string.Empty;
     public QueryGrammar            Grammar     { get; set; } = null!;
 
     public QueryBuilder()
