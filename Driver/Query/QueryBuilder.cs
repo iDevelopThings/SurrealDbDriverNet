@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Driver.Json;
 using Driver.Query.Grammar;
 using Driver.Query.Grammar.Clauses;
 using Driver.Models;
@@ -55,6 +56,8 @@ public interface IQueryBuilder
     QueryBuilder From(params Thing[] things);
 
     QueryBuilder From(IEnumerable<Thing> things);
+
+    string ToSql();
 }
 
 public class QueryBuilder : IQueryBuilder
@@ -72,6 +75,8 @@ public class QueryBuilder : IQueryBuilder
     public List<QueryOrder> Orders { get; set; } = new();
 
     public string? QueryString { get; set; } = string.Empty;
+
+    public QueryGrammar Grammar { get; set; } = null!;
 
     private QueryParameter AddParameter(string variableName, object value)
     {
@@ -242,8 +247,6 @@ public class QueryBuilder : IQueryBuilder
         return QueryString!;
     }
 
-    public QueryGrammar Grammar { get; set; } = null!;
-
     public Dictionary<string, object?>? GetParameters()
     {
         var parameters = new Dictionary<string, object?>();
@@ -256,6 +259,17 @@ public class QueryBuilder : IQueryBuilder
         }
 
         return parameters;
+    }
+
+    public string ToSql()
+    {
+        var q = Tokens.ToString();
+
+        foreach (var p in Parameters) {
+            q = q.Replace($"${p.VariableName}", DbJson.Serialize(p.Value));
+        }
+
+        return q;
     }
 
     public async Task<DbQueryResponse<object?>> Execute()
