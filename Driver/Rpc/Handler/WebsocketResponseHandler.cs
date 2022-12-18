@@ -41,6 +41,9 @@ public class WebsocketResponseHandler : IHandler
 
     public void Handle(string id, IRpcResponse response)
     {
+        response!.RawJson = response.RawJson;
+        response!.Request = request;
+
         tcs.SetResult((id, response));
     }
 

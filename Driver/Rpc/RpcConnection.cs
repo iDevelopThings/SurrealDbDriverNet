@@ -151,12 +151,16 @@ public class RpcConnection
 
     public async Task Close()
     {
-        var t1 = CloseWs();
-        var t2 = Task.Run(ClearHandlers, _cts.Token);
-        _cts.Cancel();
+        try {
+            var t1 = CloseWs();
+            var t2 = Task.Run(ClearHandlers, _cts.Token);
+            _cts.Cancel();
 
-        await t1;
-        await t2;
+            await t1;
+            await t2;
+        }
+        catch (TaskCanceledException e) {
+        }
     }
 
     private void RegisterHandler(IHandler handler)

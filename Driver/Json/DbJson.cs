@@ -23,4 +23,9 @@ public class DbJson
 
     public static object? Deserialize(string json, Type type)
         => JsonConvert.DeserializeObject(json, type, DeserializeSettings);
+
+    public static void Populate<T>(string json, T obj)
+    {
+        JsonConvert.PopulateObject(json, obj!, DeserializeSettings);
+    }
 }

@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using Driver.Rpc.Response;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Driver.Json;
 
@@ -10,6 +12,17 @@ public class DatabaseJsonConverterContract : DefaultContractResolver
     {
         JsonContract contract = base.CreateContract(objectType);
 
+        if (objectType == typeof(DbQueryResult<>)) {
+            return contract;
+        }
+
+        if (objectType == typeof(ResultWrapper<>) || objectType.Name.Contains("ResultWrapper")) {
+            var converter = typeof(ResultConverter<>).MakeGenericType(objectType.GetGenericArguments()[0]);
+
+            contract.Converter = (JsonConverter) Activator.CreateInstance(converter)!;
+
+            return contract;
+        }
         // this will only be called once and then cached
         // if (objectType == typeof(DateTime) || objectType == typeof(DateTimeOffset)) {
         // contract.Converter = new JavaScriptDateTimeConverter();

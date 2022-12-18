@@ -1,4 +1,5 @@
 ﻿using Driver.Json;
+using Driver.Rpc.Request;
 using Newtonsoft.Json;
 
 namespace Driver.Rpc.Response;
@@ -8,6 +9,8 @@ public interface IRpcResponse
     string?   Id     { get; set; }
     RpcError? Error  { get; set; }
     object?   Result { get; set; }
+
+    IRpcRequest Request { get; set; }
 
     // Type         GetResultType();
     public string? RawJson { get; set; }
@@ -33,6 +36,8 @@ public struct RpcResponse<TDataType> : IRpcResponse
 
     [JsonProperty("result")]
     public object? Result { get; set; }
+
+    public IRpcRequest Request { get; set; }
 
     public string RawJson { get; set; }
 

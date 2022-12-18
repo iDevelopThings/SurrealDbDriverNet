@@ -42,7 +42,7 @@ public partial class SurrealModel<TModel> : ISurrealModel
         return attributes;
     }
 
-    public static QueryBuilder<TModel> Query() => new QueryBuilder<TModel>();
+    public static QueryBuilder<TModel> Query() => new QueryBuilder<TModel>().Select("*");
 
     public TModel SetAttributes(TModel model)
     {

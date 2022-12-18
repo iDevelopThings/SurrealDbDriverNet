@@ -16,7 +16,7 @@
         <Company>iDevelopThings</Company>
         <Product>SurrealDb.Driver</Product>
         <AssemblyVersion>1.0.0</AssemblyVersion>
-        <Version>1.0.6</Version>
+        <Version>1.0.7</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -28,9 +28,6 @@
       <PackageReference Include="EnvusoIocContainer" Version="1.0.0" />
       <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.2.1" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    </ItemGroup>
-
-    <ItemGroup>
     </ItemGroup>
 
 </Project>

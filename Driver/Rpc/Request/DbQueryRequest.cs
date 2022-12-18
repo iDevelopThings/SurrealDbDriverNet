@@ -14,10 +14,18 @@ public struct DbQueryRequest : IRpcRequest
     [JsonProperty("params")]
     public List<object?>? Params { get; set; }
 
-    public DbQueryRequest(string query, Dictionary<string, object?>? vars)
+    public List<string> Queries { get; set; } = new();
+
+    public DbQueryRequest(List<string> query, Dictionary<string, object?>? vars)
     {
-        Id     = RpcId.GetRandom(6);
-        Method = "query";
-        Params = new List<object?> {query, vars};
+        Id      = RpcId.GetRandom(6);
+        Method  = "query";
+        Queries = query;
+        Params  = new List<object?> {GetQuery(), vars};
+    }
+
+    public string GetQuery()
+    {
+        return String.Join(Environment.NewLine, Queries);
     }
 }

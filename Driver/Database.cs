@@ -5,6 +5,7 @@ using Driver.Rpc.Request;
 using Driver.Rpc.Response;
 using IocContainer;
 using Driver.Models.Utils;
+using Driver.Schema;
 
 namespace Driver;
 
@@ -98,14 +99,24 @@ public class Database
     }
 
     public static async Task<DbQueryResponse<object?>?> Query(string query, Dictionary<string, object?>? vars = null)
-    {
-        return await _driver.Query(query, vars);
-    }
+        => await _driver.Query(query, vars);
+
+    public static async Task<DbQueryResponse<object?>?> Query(List<string> query, Dictionary<string, object?>? vars = null)
+        => await _driver.Query(query, vars);
 
     public static async Task<DbQueryResponse<T?>> Query<T>(string query, Dictionary<string, object?>? vars = null)
-    {
-        return await _driver.Query<T>(query, vars);
-    }
+        => await _driver.Query<T>(query, vars);
+
+    public static async Task<DbQueryResponse<T?>> Query<T>(List<string> query, Dictionary<string, object?>? vars = null)
+        => await _driver.Query<T>(query, vars);
+
+    public static async Task<DbInfoResponse?> Info() => await _driver.GetDbInfo();
+
+    public static async Task<DbTableInfoResponse?> GetTableInfo(string name) => await _driver.GetTableInfo(name);
+
+    // public static async Task<Dictionary<string, DbTableInfoResponse?>> GetTablesInfo(params string[] names) => await _driver.GetTablesInfo(names);
+
+    public static async Task<DatabaseSchema?> GetSchema() => await _driver.LoadSchema();
 
     public static void Configure(Action<IDatabaseConfiguration> cb)
     {

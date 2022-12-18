@@ -21,6 +21,9 @@ public class WebsocketCustomResponseHandler : WebsocketResponseHandler, ICustomH
     {
         var rpcRes            = (BasicRpcResponse) response;
         var deserializeObject = DbJson.Deserialize(rpcRes.RawJson, customResponseType) as IRpcResponseExtended;
+        deserializeObject!.RawJson = rpcRes.RawJson;
+        deserializeObject!.Request = request;
+
         tcs.SetResult((id, deserializeObject)!);
     }
 }
